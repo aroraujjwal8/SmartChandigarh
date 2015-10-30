@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">SmartChandigarh</string>
+<<<<<<< HEAD
     <string name="title_menu_traffic">Traffic</string>
     <string name="title_menu_health">Health</string>
     <string-array name="fragment_titles">
@@ -9,4 +10,11 @@
         <item>Profile</item>
         <item>Settings</item>
     </string-array>
+=======
+    <string name="title_activity_traffic">TrafficActivity</string>
+    <string name="address_found">Address Found</string>
+    <string name="no_address_found">No Address Found</string>
+    <string name="invalid_lat_long_used">Invalid Latitude/Longitude Used</string>
+    <string name="service_not_available">Service Not Available</string>
+>>>>>>> backend_work
 </resources>
