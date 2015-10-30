@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SmartChandigarh</string>
+    <string name="title_activity_traffic">TrafficActivity</string>
 </resources>
