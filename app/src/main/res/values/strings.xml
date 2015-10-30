@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">SmartChandigarh</string>
+    <string-array name="fragment_titles">
+        <item>Home Fragment</item>
+        <item>Emergency</item>
+        <item>Alerts</item>
+        <item>Profile</item>
+        <item>Settings</item>
+    </string-array>
 </resources>
