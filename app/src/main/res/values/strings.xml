@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">SmartChandigarh</string>
     <string name="title_activity_traffic">TrafficActivity</string>
+    <string name="address_found">Address Found</string>
+    <string name="no_address_found">No Address Found</string>
+    <string name="invalid_lat_long_used">Invalid Latitude/Longitude Used</string>
+    <string name="service_not_available">Service Not Available</string>
 </resources>

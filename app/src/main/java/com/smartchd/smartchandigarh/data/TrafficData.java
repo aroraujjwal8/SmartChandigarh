@@ -3,7 +3,7 @@ package com.smartchd.smartchandigarh.data;
 
 public class TrafficData {
     private double start_latitude, start_longitude, end_latitude, end_longitude;
-    private String congestionType;
+    private String congestionType,startLocation,endLocation;
     private int congestion_level;
 
     public TrafficData(double start_latitude, double start_longitude, double end_latitude,
@@ -43,5 +43,22 @@ public class TrafficData {
 
     public double getEnd_longitude() {
         return end_longitude;
+    }
+
+
+    public String getStartLocation() {
+        return startLocation;
+    }
+
+    public void setStartLocation(String startLocation) {
+        this.startLocation = startLocation;
+    }
+
+    public String getEndLocation() {
+        return endLocation;
+    }
+
+    public void setEndLocation(String endLocation) {
+        this.endLocation = endLocation;
     }
 }
