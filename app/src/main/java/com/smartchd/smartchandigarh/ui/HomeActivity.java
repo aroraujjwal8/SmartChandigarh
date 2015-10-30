@@ -62,6 +62,8 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
         tabLayout.getTabAt(4).setCustomView(R.layout.custom_settings_tab);
 
         viewPager.addOnPageChangeListener(this);
+        viewPager.setCurrentItem(1);
+        viewPager.setCurrentItem(0, true);
 
     }
 

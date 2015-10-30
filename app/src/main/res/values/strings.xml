@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">SmartChandigarh</string>
+    <string name="title_menu_traffic">Traffic</string>
+    <string name="title_menu_health">Health</string>
     <string-array name="fragment_titles">
         <item>Home Fragment</item>
         <item>Emergency</item>
