@@ -16,10 +16,6 @@
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
 
-        <service
-            android:name=".utils.FetchAddressIntentService"
-            android:exported="false" >
-        </service>
     </application>
 
 </manifest>
