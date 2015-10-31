@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.smartchd.smartchandigarh.R;
 import com.smartchd.smartchandigarh.data.Constants;
@@ -33,6 +34,7 @@ public class AlertFragment extends Fragment {
     private OnFragmentInteractionListener mListener;
     private AlertAdapter alertAdapter;
     private ArrayList<String> alertArrayList;
+    private ProgressBar progressBar;
 
     public static AlertFragment newInstance(String param1, String param2) {
         AlertFragment fragment = new AlertFragment();
@@ -65,6 +67,7 @@ public class AlertFragment extends Fragment {
         alertArrayList = new ArrayList<>();
         alertAdapter = new AlertAdapter(getActivity(),alertArrayList);
         recyclerView.setAdapter(alertAdapter);
+        progressBar = (ProgressBar) layout_view.findViewById(R.id.alertProgressBar);
         AlertTask alertTask = new AlertTask();
         alertTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR,createRequestPackage());
         return layout_view;
@@ -123,6 +126,7 @@ public class AlertFragment extends Fragment {
             alertArrayList.clear();
             alertArrayList.addAll(strings);
             alertAdapter.notifyDataSetChanged();
+            progressBar.setVisibility(View.GONE);
         }
     }
 }

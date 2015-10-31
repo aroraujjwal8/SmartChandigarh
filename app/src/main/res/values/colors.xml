@@ -6,6 +6,7 @@
     <color name="colorAccent">@color/white</color>
     <color name="white">#FFF</color>
     <color name="transparent">#00FFFFFF</color>
+    <color name="translucent">#88FFFFFF</color>
     <color name="light_grey">#D5D6D9</color>
     <color name="grey">#808080</color>
 

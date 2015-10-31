@@ -80,6 +80,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.smartchd.smartchandigarh.ui.HomeActivity" />
         </activity>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBW3SSFUpxcyRdrNioitIv_jy4bgY9C2Oo"/>
     </application>
 
 </manifest>

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,7 +26,7 @@ import com.smartchd.smartchandigarh.utils.QuickstartPreferences;
 import com.smartchd.smartchandigarh.utils.RegistrationIntentService;
 import com.smartchd.smartchandigarh.utils.RequestPackage;
 
-public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
+public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener, AlertFragment.OnFragmentInteractionListener {
 
     public static final int CALL_USER_SIGN_UP = 100;
 
@@ -177,6 +178,11 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
             return false;
         }
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 
     private class AddUserTask extends AsyncTask<RequestPackage,Void,Boolean>{
