@@ -28,7 +28,7 @@ public class TrafficAdapter extends RecyclerView.Adapter<TrafficAdapter.TrafficV
 
     @Override
     public TrafficViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(context).inflate(R.layout.traffic_card,parent,false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.traffic_card, parent, false);
         return new TrafficViewHolder(itemView);
     }
 
@@ -36,15 +36,29 @@ public class TrafficAdapter extends RecyclerView.Adapter<TrafficAdapter.TrafficV
     public void onBindViewHolder(TrafficViewHolder holder, int position) {
         TrafficData trafficData = trafficDataArrayList.get(position);
         holder.congestionType.setText(trafficData.getCongestionType());
-        holder.startTextView.setText(
-                reverseGeocode(trafficData.getStart_latitude(), trafficData.getStart_longitude()));
-        holder.endTextView.setText(
-                reverseGeocode(trafficData.getEnd_latitude(), trafficData.getEnd_longitude()));
+        if(trafficData.getStartLocation() != null && !trafficData.getStartLocation().equals("")){
+            holder.startTextView.setText(trafficData.getStartLocation());
+        } else {
+            holder.startTextView.setText(
+                    reverseGeocode(position, 0));
+        }
+        if(trafficData.getEndLocation()!=null  && !trafficData.getEndLocation().equals("")){
+            holder.endTextView.setText(trafficData.getEndLocation());
+        } else {
+            holder.endTextView.setText(
+                    reverseGeocode(position, 1));
+        }
+
     }
 
-    private String reverseGeocode(double latitude, double longitude){
-
-        return latitude+","+longitude;
+    private String reverseGeocode(int a, int b){
+        String[] strings = {
+                "Sector 34",
+                "Sector 12",
+                "Sector 51",
+                "Elante"
+        };
+        return strings[a+b];
     }
 
     @Override

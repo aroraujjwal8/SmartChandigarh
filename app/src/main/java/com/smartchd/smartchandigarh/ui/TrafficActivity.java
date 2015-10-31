@@ -7,6 +7,7 @@ import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -54,6 +55,8 @@ public class TrafficActivity extends AppCompatActivity{
 
         trafficDataArrayList = Constants.trafficDatas;
         trafficAdapter = new TrafficAdapter(this,trafficDataArrayList);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(trafficAdapter);
     }
 
     private RequestPackage createRequestPackage(){
@@ -69,6 +72,7 @@ public class TrafficActivity extends AppCompatActivity{
     }
 
     private void reverseGeocode(ArrayList<TrafficData> trafficDatas){
+        Log.d("tag",trafficDatas.size()+"");
         DecodeLocationTask decodeLocationTask = new DecodeLocationTask(this, trafficDatas);
         decodeLocationTask.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
@@ -84,6 +88,7 @@ public class TrafficActivity extends AppCompatActivity{
         @Override
         protected ArrayList<TrafficData> doInBackground(RequestPackage... requestPackages) {
             String content = HttpManager.getData(requestPackages[0]);
+//            Log.d("content",content);
             return JsonParser.getAllTrafficData(content);
         }
 
@@ -133,6 +138,8 @@ public class TrafficActivity extends AppCompatActivity{
                     }
                      trafficData.setStartLocation(TextUtils.join(System.getProperty("line.separator"),
                              addressFragments));
+                    String start = TextUtils.join(System.getProperty("line.separator"),addressFragments);
+                            Log.d("Start", start + "--");
                 }
             }
 
@@ -164,14 +171,19 @@ public class TrafficActivity extends AppCompatActivity{
                     }
                     trafficData.setEndLocation(TextUtils.join(System.getProperty("line.separator"),
                             addressFragments));
+
+                    String end = TextUtils.join(System.getProperty("line.separator"),addressFragments);
+                    Log.d("End", end + "--");
                 }
             }
+            Log.d("size",trafficDatas.size()+"");
             return trafficDatas;
         }
 
         @Override
         protected void onPostExecute(ArrayList<TrafficData> trafficDatas) {
             progressBar.setVisibility(View.GONE);
+            recyclerView.setVisibility(View.VISIBLE);
             trafficDataArrayList.clear();
             trafficDataArrayList.addAll(trafficDatas);
             trafficAdapter.notifyDataSetChanged();
