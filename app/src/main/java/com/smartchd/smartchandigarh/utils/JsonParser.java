@@ -21,6 +21,10 @@ public class JsonParser {
                 double start_longitude = jsonObject.getDouble(Constants.TRAFFIC_CONSTANTS.START_LONG);
                 double end_lattitude = jsonObject.getDouble(Constants.TRAFFIC_CONSTANTS.END_LAT);
                 double end_longitude = jsonObject.getDouble(Constants.TRAFFIC_CONSTANTS.END_LONG);
+                String type = jsonObject.getString(Constants.TRAFFIC_CONSTANTS.TYPE);
+                int level = jsonObject.getInt(Constants.TRAFFIC_CONSTANTS.LEVEL);
+                trafficDataArrayList.add(new TrafficData(start_latitude, start_longitude,
+                                                        end_lattitude, end_longitude, type, level));
             }
         } catch (JSONException|NullPointerException e){
             e.printStackTrace();

@@ -1,9 +1,13 @@
 package com.smartchd.smartchandigarh.ui;
 
+<<<<<<< HEAD
+import android.content.Intent;
+=======
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+>>>>>>> nb2
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.design.widget.TabLayout;
@@ -17,9 +21,12 @@ import com.google.android.gms.common.GoogleApiAvailability;
 import com.smartchd.smartchandigarh.R;
 import com.smartchd.smartchandigarh.utils.Constants;
 import com.smartchd.smartchandigarh.utils.HomePagerAdapter;
+<<<<<<< HEAD
 import com.smartchd.smartchandigarh.utils.MySharedPreferences;
+=======
 import com.smartchd.smartchandigarh.utils.QuickstartPreferences;
 import com.smartchd.smartchandigarh.utils.RegistrationIntentService;
+>>>>>>> nb2
 
 /**
  * Created by raghav on 30/10/15.
@@ -31,9 +38,12 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
     private ViewPager viewPager;
     private Fragment[] pagerFragments;
     private String[] titles;
+<<<<<<< HEAD
     private MySharedPreferences sp;
+=======
     private BroadcastReceiver mRegistrationBroadcastReceiver;
     private static final int PLAY_SERVICES_RESOLUTION_REQUEST = 9000;
+>>>>>>> nb2
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +52,9 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
         init_stringArray();
         init_fragments();
         init_instances();
+<<<<<<< HEAD
         checkUser();
+=======
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -62,6 +74,7 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
             Intent intent = new Intent(this, RegistrationIntentService.class);
             startService(intent);
         }
+>>>>>>> nb2
     }
 
     private void init_stringArray(){
@@ -127,6 +140,7 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
+<<<<<<< HEAD
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -140,8 +154,7 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
                 }
                 break;
         }
-    }
-
+=======
     private boolean checkPlayServices() {
         GoogleApiAvailability apiAvailability = GoogleApiAvailability.getInstance();
         int resultCode = apiAvailability.isGooglePlayServicesAvailable(this);
@@ -156,5 +169,6 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
             return false;
         }
         return true;
+>>>>>>> nb2
     }
 }
