@@ -48,7 +48,9 @@ public class TrafficActivity extends AppCompatActivity{
     private void initializeViews(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowTitleEnabled(true);
+        getSupportActionBar().setTitle("Traffic Update");
         recyclerView = (RecyclerView)findViewById(R.id.trafficRecyclerView);
 
         progressBar = (ProgressBar)findViewById(R.id.trafficProgressBar);

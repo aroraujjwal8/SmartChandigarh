@@ -6,6 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -49,6 +50,11 @@ public class TrafficAdapter extends RecyclerView.Adapter<TrafficAdapter.TrafficV
                     reverseGeocode(position, 1));
         }
 
+        if(trafficData.getCongestion_level() <= 3){
+            holder.root.setBackgroundColor(context.getResources().getColor(R.color.green));
+        }else{
+            holder.root.setBackgroundColor(context.getResources().getColor(R.color.red));
+        }
     }
 
     private String reverseGeocode(int a, int b){
@@ -56,7 +62,11 @@ public class TrafficAdapter extends RecyclerView.Adapter<TrafficAdapter.TrafficV
                 "Sector 34",
                 "Sector 12",
                 "Sector 51",
-                "Elante"
+                "Elante",
+                "Sector 17",
+                "IT Park",
+                "Sector 35",
+                "Sector 43"
         };
         return strings[a+b];
     }
@@ -83,10 +93,12 @@ public class TrafficAdapter extends RecyclerView.Adapter<TrafficAdapter.TrafficV
 
     protected class TrafficViewHolder extends RecyclerView.ViewHolder{
 
+        private LinearLayout root;
         private TextView congestionType;
         private TextView startTextView, endTextView;
         public TrafficViewHolder(View itemView) {
             super(itemView);
+            root = (LinearLayout) itemView.findViewById(R.id.traffic_card_root);
             congestionType = (TextView)itemView.findViewById(R.id.typeOfCongestion);
             startTextView = (TextView)itemView.findViewById(R.id.trafficFrom);
             endTextView = (TextView)itemView.findViewById(R.id.trafficUpto);

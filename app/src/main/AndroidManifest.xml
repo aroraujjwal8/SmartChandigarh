@@ -22,7 +22,8 @@
         <activity
             android:name=".ui.TrafficActivity"
             android:label="@string/title_activity_traffic"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName=".ui.HomeActivity">
         </activity>
 
         <activity

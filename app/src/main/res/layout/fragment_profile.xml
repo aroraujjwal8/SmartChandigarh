@@ -1,6 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/light_grey"
+    android:padding="@dimen/padding_small">
 
-</RelativeLayout>
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/margin_medium"
+        android:background="@drawable/menu_wrapper_background">
+
+        <ImageView
+            android:id="@+id/image_profile_pic"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_columnSpan="2"
+            android:src="@drawable/profile"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:id="@+id/profile_name_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name"
+            android:layout_columnWeight="1"
+            android:textSize="20sp"
+            android:padding="@dimen/padding_small"
+            android:textColor="@color/material_blue_grey_800" />
+
+        <TextView
+            android:id="@+id/profile_name_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:padding="@dimen/padding_small"
+            android:textSize="20sp"
+            android:textColor="@color/material_blue_grey_800"/>
+
+        <TextView
+            android:id="@+id/profile_phone_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone"
+            android:layout_columnWeight="1"
+            android:padding="@dimen/padding_small"
+            android:textSize="20sp"
+            android:textColor="@color/material_blue_grey_800"/>
+
+        <TextView
+            android:id="@+id/profile_phone_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:padding="@dimen/padding_small"
+            android:textSize="20sp"
+            android:textColor="@color/material_blue_grey_800"/>
+
+        <TextView
+            android:id="@+id/profile_email_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:layout_columnWeight="1"
+            android:padding="@dimen/padding_small"
+            android:textSize="20sp"
+            android:textColor="@color/material_blue_grey_800"/>
+
+        <TextView
+            android:id="@+id/profile_email_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_columnWeight="1"
+            android:padding="@dimen/padding_small"
+            android:textSize="20sp"
+            android:textColor="@color/material_blue_grey_800"/>
+
+    </GridLayout>
+
+
+
+</ScrollView>

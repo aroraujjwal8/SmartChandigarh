@@ -38,11 +38,11 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        checkUser();
         setContentView(R.layout.activity_home);
         init_stringArray();
         init_fragments();
         init_instances();
-        checkUser();
         mRegistrationBroadcastReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {

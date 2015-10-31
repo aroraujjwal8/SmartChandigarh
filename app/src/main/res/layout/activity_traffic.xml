@@ -25,7 +25,9 @@
             android:id="@+id/trafficProgressBar"
             android:indeterminate="true"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/progress_drawable"/>
 
         <android.support.v7.widget.RecyclerView
             android:layout_centerInParent="true"
