@@ -8,6 +8,7 @@
 
     <string name="title_menu_traffic">Traffic</string>
     <string name="title_menu_health">Health</string>
+    <string name="title_activity_new_user">New User</string>
     <string-array name="fragment_titles">
         <item>Home Fragment</item>
         <item>Emergency</item>

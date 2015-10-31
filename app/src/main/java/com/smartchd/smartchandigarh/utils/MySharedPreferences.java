@@ -2,6 +2,7 @@ package com.smartchd.smartchandigarh.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.net.Uri;
 
 /**
  * Created by raghav on 31/10/15.
@@ -37,7 +38,7 @@ public class MySharedPreferences {
         return sharedPreferences.getString(USER_PHONE, null);
     }
 
-    public String getProfileImageURL() {
+    public String getProfileUri(){
         return sharedPreferences.getString(USER_PROFILE_PIC, null);
     }
 
@@ -65,9 +66,9 @@ public class MySharedPreferences {
         return editor.commit();
     }
 
-    public boolean setProfilePic(String profilePic) {
+    public boolean setProfilePic(Uri profilePic) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString(USER_LAST_NAME, profilePic);
+        editor.putString(USER_PROFILE_PIC, profilePic.toString());
         return editor.commit();
     }
 }

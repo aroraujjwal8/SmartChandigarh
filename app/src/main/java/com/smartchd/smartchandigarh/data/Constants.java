@@ -3,7 +3,7 @@ package com.smartchd.smartchandigarh.data;
 import java.util.ArrayList;
 
 public class Constants {
-    public static final String BASE_URL = "http://ec2-52-32-81-58.us-west-2.compute.amazonaws.com/";
+    public static final String BASE_URL = "http://ec2-52-32-168-233.us-west-2.compute.amazonaws.com/";
     public static final String GET = "GET";
     public static final String POST = "POST";
 

@@ -1,5 +1,6 @@
 package com.smartchd.smartchandigarh.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -9,15 +10,19 @@ import android.support.v7.app.AppCompatActivity;
 import com.smartchd.smartchandigarh.R;
 import com.smartchd.smartchandigarh.utils.Constants;
 import com.smartchd.smartchandigarh.utils.HomePagerAdapter;
+import com.smartchd.smartchandigarh.utils.MySharedPreferences;
 
 /**
  * Created by raghav on 30/10/15.
  */
 public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageChangeListener {
 
+    public static final int CALL_USER_SIGN_UP = 100;
+
     private ViewPager viewPager;
     private Fragment[] pagerFragments;
     private String[] titles;
+    private MySharedPreferences sp;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +31,7 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
         init_stringArray();
         init_fragments();
         init_instances();
+        checkUser();
     }
 
     private void init_stringArray(){
@@ -67,6 +73,14 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
 
     }
 
+    private void checkUser(){
+        sp = new MySharedPreferences(this);
+        if(sp.getFirstName() == null){
+            Intent newUserIntent = new Intent(this, NewUserActivity.class);
+            startActivityForResult(newUserIntent, CALL_USER_SIGN_UP);
+        }
+    }
+
     @Override
     public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
 
@@ -80,5 +94,20 @@ public class HomeActivity extends AppCompatActivity implements ViewPager.OnPageC
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode) {
+            case CALL_USER_SIGN_UP:
+                if (resultCode == RESULT_OK) {
+                    sp.setFirstName(data.getStringExtra("fname"));
+                    sp.setLastName(data.getStringExtra("lname"));
+                    sp.setPhone(data.getStringExtra("phone"));
+                    sp.setEmail(data.getStringExtra("email"));
+                }
+                break;
+        }
     }
 }
