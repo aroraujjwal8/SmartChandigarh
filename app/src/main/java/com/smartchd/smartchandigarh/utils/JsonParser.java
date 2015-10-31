@@ -32,4 +32,28 @@ public class JsonParser {
         return trafficDataArrayList;
     }
 
+    public static boolean getStatus(String content){
+        try {
+            JSONObject jsonObject = new JSONObject(content);
+            return (jsonObject.getInt("status") > 0);
+        } catch (JSONException|NullPointerException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    public static ArrayList<String> getAllStrings(String content){
+        ArrayList<String> arrayList = new ArrayList<>();
+        try {
+            JSONArray jsonArray = new JSONArray(content);
+            for (int i = 0; i < jsonArray.length(); i++){
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                arrayList.add(jsonObject.getString("alert"));
+            }
+        } catch (JSONException|NullPointerException e) {
+            e.printStackTrace();
+        }
+        return arrayList;
+    }
+
 }

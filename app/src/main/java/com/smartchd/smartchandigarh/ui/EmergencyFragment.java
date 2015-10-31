@@ -9,9 +9,6 @@ import android.view.ViewGroup;
 
 import com.smartchd.smartchandigarh.R;
 
-/**
- * Created by raghav on 30/10/15.
- */
 public class EmergencyFragment extends Fragment {
 
     @Nullable

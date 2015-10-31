@@ -7,11 +7,11 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
-    <permission android:name="com.example.gcm.permission.C2D_MESSAGE"
+    <permission
+        android:name="com.example.gcm.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
+
     <uses-permission android:name="com.example.gcm.permission.C2D_MESSAGE" />
-
-
 
     <application
         android:allowBackup="true"
@@ -25,15 +25,12 @@
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".ui.HomeActivity">
         </activity>
-
         <activity
             android:name=".ui.NewUserActivity"
             android:label="@string/title_activity_new_user"
             android:theme="@style/AppTheme.NoActionBar" >
         </activity>
-
         <activity android:name="com.soundcloud.android.crop.CropImageActivity" />
-
         <activity
             android:name=".ui.HomeActivity"
             android:label="@string/app_name" >
@@ -50,9 +47,11 @@
             android:permission="com.google.android.c2dm.permission.SEND" >
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
+
                 <category android:name="com.example.gcm" />
             </intent-filter>
         </receiver>
+
         <service
             android:name="utils.MyGCMListenerService"
             android:exported="false" >
@@ -62,15 +61,25 @@
         </service>
         <service
             android:name=".utils.MyInstanceIDListenerService"
-            android:exported="false">
+            android:exported="false" >
             <intent-filter>
-                <action android:name="com.google.android.gms.iid.InstanceID"/>
+                <action android:name="com.google.android.gms.iid.InstanceID" />
             </intent-filter>
         </service>
         <service
             android:name=".utils.RegistrationIntentService"
-            android:exported="false">
+            android:exported="false" >
         </service>
+
+        <activity
+            android:name=".ui.HealthActivity"
+            android:label="@string/title_activity_health"
+            android:parentActivityName=".ui.HomeActivity"
+            android:theme="@style/AppTheme" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.smartchd.smartchandigarh.ui.HomeActivity" />
+        </activity>
     </application>
 
 </manifest>

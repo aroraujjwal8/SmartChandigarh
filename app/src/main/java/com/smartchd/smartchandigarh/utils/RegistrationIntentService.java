@@ -12,6 +12,7 @@ import com.google.android.gms.gcm.GoogleCloudMessaging;
 import com.google.android.gms.iid.InstanceID;
 import com.smartchd.smartchandigarh.R;
 import com.smartchd.smartchandigarh.data.Constants;
+import com.smartchd.smartchandigarh.ui.HomeActivity;
 
 import java.io.IOException;
 
@@ -77,7 +78,7 @@ public class RegistrationIntentService extends IntentService {
         requestPackage.setUri(Constants.BASE_URL+"update_token.php");
         requestPackage.setMethod("POST");
         requestPackage.setParam("token", token);
-        requestPackage.setParam("mail", "");
+        requestPackage.setParam("mail", new MySharedPreferences(getApplicationContext()).getEmail());
         String content = HttpManager.getData(requestPackage);
     }
 
